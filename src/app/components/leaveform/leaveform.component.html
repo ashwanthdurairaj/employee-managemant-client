@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Employee Management</a>
+    <button class="navbar-toggler" type="button"  >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav navbar-right">
+          <li class="nav-item" >
+            <a class="nav-link" [routerLink] = "['/profile']">Profile</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" [routerLink] = "['/dashboard']">Dashboard</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" [routerLink] = "['/leave']">Leave-form</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" (click) = "onLogoutClick()" href = "#">Logout</a>
+          </li>    
+        </ul>
+    </div>
+    </div>
+</nav>
+<h1>Leave Application Form</h1>
+<div *ngIf = "status == false" class="alert alert-dismissible alert-danger">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" fdprocessedid="p5t7h"></button>
+  Leave request not successful, enter all the fields
+</div>
+<div *ngIf = "status == true" class="alert alert-dismissible alert-success">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" fdprocessedid="d75c3b"></button>
+  Leave request successful
+</div>
+<form (submit) = "Onclick()">
+  <label for="subject">Subject:</label>
+  <input type="text" [(ngModel)]="subject" id="subject" name="subject" required><br>
+
+  <label for="leave_type">Leave Type:</label>
+  <select [(ngModel)]="type" id="leave_type" name="leave_type" required>
+    <option value="">--Select Leave Type--</option>
+    <option value="Annual Leave">Annual Leave</option>
+    <option value="Sick Leave">Sick Leave</option>
+    <option value="Maternity Leave">Maternity Leave</option>
+    <option value="Paternity Leave">Paternity Leave</option>
+    <option value="Other">Other</option>
+  </select><br>
+
+  <label for="start_date">Start Date:</label>
+  <input type="date" [(ngModel)]="start" id="start_date" name="start_date" required><br>
+
+  <label for="end_date">End Date:</label>
+  <input type="date" [(ngModel)]="end" id="end_date" name="end_end_date" required><br>
+
+  <label for="reason">Reason:</label>
+  <textarea [(ngModel)]="reason" id="reason" name="reason" required></textarea><br>
+
+  <input type="submit" value="Submit">
+</form>

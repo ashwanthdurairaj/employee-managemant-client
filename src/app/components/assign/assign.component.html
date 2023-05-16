@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Employee Management</a>
+      <button class="navbar-toggler" type="button"  >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item" >
+            <a class="nav-link" [routerLink] = "['/manager']">Dashboard</a>
+          </li>  
+            <!-- <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/requests']">Requests</a>
+            </li> -->
+            <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/assign']">Assign Task</a>
+            </li>
+            <!-- <li class="nav-item" >
+                <a class="nav-link" [routerLink] = "['/announcement']">Announcement</a>
+            </li> -->
+            <li class="nav-item" >
+              <a class="nav-link" (click) = "onLogoutClick()" href = "#">Logout</a>
+            </li>    
+          </ul>
+      </div>
+      </div>
+  </nav>
+
+  <!-- <form (submit)="Submit()">
+    <input type="text" [(ngModel)]="searchTerm" name="searchTerm" [typeahead]="suggestions" (click) = "employeeList()">
+    <input type="text" [(ngModel)]="title" name="title">
+    <textarea type="text" [(ngModel)]="description" name="description"></textarea>
+    <input type="file" [(ngModel)]="File" name="File">
+    <input type="date" [(ngModel)]="Date" name="Date">
+    <input type="submit">
+  </form> -->
+  <div *ngIf = "status == false" class="alert alert-dismissible alert-danger">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" fdprocessedid="p5t7h"></button>
+    Assignment Unsuccessful
+  </div>
+  <div *ngIf = "status == true" class="alert alert-dismissible alert-success">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" fdprocessedid="d75c3b"></button>
+    Assignment Successful.
+  </div>
+  <form (submit)="Submit()" class="form-container">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" [(ngModel)]="searchTerm" id="searchTerm" name="searchTerm" [typeahead]="suggestions" (click)="employeeList()" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" [(ngModel)]="title" id="title" name="title" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" [(ngModel)]="description" rows="5" required></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="deadline">Deadline:</label>
+      <input type="date" [(ngModel)]="Date" id="Date" name="Date" required>
+    </div>
+  
+    <button type="submit">Submit</button>
+  </form>
+  

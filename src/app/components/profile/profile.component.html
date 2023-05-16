@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Employee Management</a>
+      <button class="navbar-toggler" type="button"  >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/profile']">Profile</a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/dashboard']">Dashboard</a>
+            </li>
+            <!-- <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/leave']">Leave-form</a>
+            </li> -->
+            <li class="nav-item" >
+              <a class="nav-link" (click) = "onLogoutClick()" href = "#">Logout</a>
+            </li>    
+          </ul>
+      </div>
+      </div>
+  </nav>
+<div *ngIf = "name">
+    <h2 class="page-header">{{name}}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Email: {{email}}</li>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item">Manager: {{manager}}</li>
+  </ul>
+  <ul class="list-group">
+    <li class="list-group-item">Manager Email: {{manager_email}}</li>
+</ul>
+</div>

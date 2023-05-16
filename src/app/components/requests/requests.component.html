@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Employee Management</a>
+      <button class="navbar-toggler" type="button"  >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item" >
+            <a class="nav-link" [routerLink] = "['/manager']">Dashboard</a>
+          </li>  
+            <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/requests']">Requests</a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" [routerLink] = "['/assign']">Assign Task</a>
+            </li>
+            <!-- <li class="nav-item" >
+                <a class="nav-link" [routerLink] = "['/announcement']">Announcement</a>
+            </li> -->
+            <li class="nav-item" >
+              <a class="nav-link" (click) = "onLogoutClick()" href = "#">Logout</a>
+            </li>    
+          </ul>
+      </div>
+      </div>
+  </nav>
+
+  <br>
+  <br>
+  <div class="container" *ngFor="let item of requests">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{item.Subject}}</div>
+      <div class="card-header">{{item.Type}}</div>
+      <div class="card-header">{{item.Start}}</div>
+      <div class="card-header">{{item.End}}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{item.Reason}}</h4>
+        <p class="card-text">{{item.employeeEmail}}</p>
+      </div>
+      <button class="card-btn" (click)="grant(item._id)">Grant Request</button>
+    </div>    
+  </div>

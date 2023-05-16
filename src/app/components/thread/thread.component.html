@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Employee Management</a>
+      <button class="navbar-toggler" type="button"  >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item" >
+              <a class="nav-link" (click) = "OnLogoutClick()" href = "#">Logout</a>
+            </li>    
+          </ul>
+      </div>
+      </div>
+  </nav>
+  
+<!-- <div class="container">
+  
+<br>
+<br>
+  <div class="card text-white bg-primary mb-3" *ngFor="let message of list">
+    <div class="card-body">
+      <div class="card-text">{{message.text}}</div>
+    </div>
+    </div>
+        
+</div> -->
+
+<div class="form-container">
+  <h3>Title: {{title}}</h3>
+  <h3>Description: {{description}}</h3>
+  <h3>Deadline: {{deadline}}</h3>    
+  <button *ngIf="type=='manager'" (click)="closeTask()">Close Task</button>
+</div>
+
+<div class="form-container" *ngFor="let item of list">
+  <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">{{item.text}}</div>
+  </div>    
+</div>
+<form (submit)="onSubmit()" class="form-container">
+  <!-- Type your message here: <textarea name="message" [(ngModel)]="message"></textarea>
+  <input type="submit"> -->
+  <div class="form-group">
+    <label for="message">Type your message here:</label>
+    <textarea id="message" name="message" [(ngModel)]="message" rows="2" required></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
