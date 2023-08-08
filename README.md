@@ -7,6 +7,8 @@ Login details:
 username: admin@gmail.com
 password: 123
 
+NOTE: WAIT FOR SOME TIME AFTER THE LOGIN BUTTON IS PRESSED.
+
 use the above credentials to log in and create accounts for both manager and employee. Also match the employee with managers.
 
 As a manager, you can create and assign tasks to your respective employees.
